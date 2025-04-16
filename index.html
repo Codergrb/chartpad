@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualizer</title>
+   <link rel="stylesheet" href="style.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+<body>
+
+    <h1>Chart Pad</h1>
+<h6>Data Visualization App </h6>
+    <div class="container">
+        <div class="controls">
+            <h4>Enter Data (CSV Format)</h4>
+            <p class="instructions">
+                Enter data like a spreadsheet. The first row should be headers (Label, Series1, Series2,...). Subsequent rows are data points. <br>
+                Example:<br>
+                <code>Month,Sales,Expenses</code><br>
+                <code>Jan,150,80</code><br>
+                <code>Feb,180,95</code><br>
+                <code>Mar,210,110</code>
+            </p>
+            <textarea id="dataInput" rows="10" class="form-control" placeholder="Category,Value1,Value2...&#10;Label1,10,20&#10;Label2,15,25"></textarea>
+
+            <h2>Chart Options</h2>
+            <div class="chart-customization container-fluid">
+                <label for="chartTitle">Chart Title:</label>
+                <input type="text" class="form-control" id="chartTitle" placeholder="My Awesome Chart">
+
+                <label for="xAxisLabel">X-Axis Label:</label>
+                <input type="text" class="form-control"  id="xAxisLabel" placeholder="Categories">
+
+                <label for="yAxisLabel">Y-Axis Label:</label>
+                <input type="text" class="form-control" id="yAxisLabel" placeholder="Values">
+                <label for="yInterval">Y-Axis Interval:</label>
+                <input type="number" class="form-control" id="yAxisInterval" value="50">
+                
+              <label for="chartTheme">Select Chart Theme</label> 
+                <select name="ChartTheme" id="chartTheme" class="form-select mb-2" >
+                      <option value="light1" selected>Light 1</option>
+                      <option value="light2" >Light 2</option>
+                      <option value="light3" >Light 3</option>
+                      <option value="dark1" >Dark 1</option>
+                      <option value="dark2" >Dark 2</option>
+                     </select>
+                <label>Chart Title Font Size</label>
+                <input type="number" class="form-control" id="titleFontSize" value="14">
+              <label>Axis Font Size</label>
+                <input type="number" class="form-control" id="axisFontSize" value="12">
+              <label>Ledgend Font Size</label>
+                <input type="number" class="form-control" id="legendFontSize" value="15">
+                
+            </div>
+
+            <button id="renderBtn" >Render Chart</button>
+            <button id="clearBtn" >Clear Data</button>
+            <button id="loadSampleBtn">Load Sample Data </button>
+            <p id="statusMessage"  class="placeholder-text"></p>
+            <div class="chart-type-selector form-check my-3">
+                <label>Chart Type:</label>
+                <input type="radio" id="line" name="chartType" value="line" checked><label for="line">Line</label>
+                <input type="radio" id="spline" name="chartType" value="spline"><label for="spline">Spline</label>
+                <input type="radio" id="bar" name="chartType" value="bar"><label for="bar">Bar</label>
+                <input type="radio" id="area" name="chartType" value="area"><label for="area">Area</label>
+                <input type="radio" id="column" name="chartType" value="column"><label for="column">Column</label>
+                <input type="radio" id="pie" name="chartType" value="pie"><label for="pie">Pie</label>
+                 <input type="radio" id="doughnut" name="chartType" value="doughnut"><label for="doughnut">Doughnut</label>
+            </div>
+        </div>
+
+        <div class="chart-area">
+            <h2>Chart Output</h2>
+            <div id="chartContainer" style="height: auto; width: 100%;"></div>
+             <p class="note">Note: Pie/Doughnut charts only use the first data series.</p>
+        </div>
+    </div>
+
+<!-- Footer -->
+<footer class="footer text-center mt-5">
+    <div class="container-fluid">
+        <p>Copyright &copy; 2025. All rights reserved.</p>
+        <p>Devloped with <span class="text-danger">&hearts;</span> by coderGrb</p>
+    </div>
+</footer>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
+    <script src="canvasjs.min.js"></script>
+    <script src="script-v1.js"></script>
+</body>
+</html>
